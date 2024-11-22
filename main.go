@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+		"os"
 	"time"
 
 	"Search/routes"
@@ -12,6 +13,7 @@ import (
 )
 
 func main() {
+	port := os.Getenv("SERVICE_PORT")
 	e1 := gin.New()
 	configCors := cors.DefaultConfig()
 	//Apply CORS middleware
@@ -40,5 +42,5 @@ func main() {
 		c.Next()
 	})
 	routes.LoadSearchRequestRoute(e1)
-	e1.Run(":8000")
+	e1.Run(":" + port)
 }
