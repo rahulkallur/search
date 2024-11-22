@@ -13,6 +13,6 @@ WORKDIR /app
 
 COPY --from=builder /app/search /usr/bin/
 
-EXPOSE 80
+EXPOSE 8000
 
 ENTRYPOINT ["search"]

@@ -13,7 +13,6 @@ import (
 )
 
 func main() {
-	port := os.Getenv("SERVICE_PORT")
 	e1 := gin.New()
 	configCors := cors.DefaultConfig()
 	//Apply CORS middleware
@@ -42,5 +41,5 @@ func main() {
 		c.Next()
 	})
 	routes.LoadSearchRequestRoute(e1)
-	e1.Run(":" + port)
+	e1.Run(":8000")
 }
